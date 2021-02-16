@@ -1,7 +1,7 @@
 FROM python:latest
 
-COPY requirements.txt /tmp/pip-tmp/
+COPY . /app
 
-RUN pip3 --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/requirements.txt \
-&& rm -rf /tmp/pip-tmp
+WORKDIR /app
 
+RUN pip3 --disable-pip-version-check --no-cache-dir install -r requirements.txt
